@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.appTitle' | trans }}{% endblock %}
+
+{% block body %}
+    <table id="table" class="table table-stripped table-hover table-bordered table-sm" {{ stimulus_controller('sort-table', {
+      'locale' : app.request.locale|split('_')[0],
+   }) }}>
+        <thead>
+            <tr>
+                <th>{{ 'label.name' | trans }}</th>
+                <th>{{ 'label.capacity' | trans }}</th>
+                <th>{{ 'label.free' | trans }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% set totalCapacity = 0 %}
+            {% set totalFreePlaces = 0 %}
+            {% for parking in parkings %}
+            <tr>
+                {% set totalCapacity = totalCapacity + parking.aforo  %}
+                {% set totalFreePlaces = totalFreePlaces + parking.libre  %}
+                <td>{{ parking.nombre }}</td>
+                <td>{{ parking.aforo }}</td>
+                <td>{{ parking.libre }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>{{ 'label.total' | trans }}</td>
+                <td>{{ totalCapacity }}</td>
+                <td>{{ totalFreePlaces }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+{% endblock %}

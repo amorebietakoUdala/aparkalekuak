@@ -1,0 +1,9 @@
+#  Titles 
+title.appTitle: "Parkings"
+title.map: "Mapa"
+
+# Labels
+label.name: "Nombre"
+label.capacity: "Plazas"
+label.free: "Libres"
+label.total: "Total"

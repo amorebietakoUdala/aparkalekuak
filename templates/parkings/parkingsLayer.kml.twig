@@ -1,0 +1,35 @@
+{# <?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+<Placemark>
+  <name>New York City</name>
+  <description>New York City</description>
+  <Point>
+    <coordinates>-74.006393,40.714172,0</coordinates>
+  </Point>
+</Placemark>
+</Document>
+</kml> #}
+{% import "parkings/_placeMarkMacro.xml.twig" as macros %}
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+	<Document>
+		<name>eZornotza</name>
+		<description>Herriko tokien informazioa</description>
+      
+		{% include "parkings/_parkingStyles.xml.twig" %}
+
+		{# <Placemark>
+			<name>My office</name>
+			<description>This is the location of my office.</description>
+			<Point>
+				<coordinates>43.219,-2.734.0,0</coordinates>
+			</Point>
+		</Placemark> #}
+
+		{# {% for parking in parkings %}
+			{{ macros.placemarkMacro (loop.index, parking.nombre, parking.aforo, parking.libre, parking.lat, parking.lon ) }}
+		{% endfor %} #}
+   </Document>
+</kml>
+

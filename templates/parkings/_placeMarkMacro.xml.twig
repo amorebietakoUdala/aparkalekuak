@@ -1,0 +1,28 @@
+{% macro placemarkMacro(loop, name, capacity, free, lat, lon) %}
+	<Placemark id="placemark{{loop}}">
+		<name>{{ name }}</name>
+		<description><![CDATA[ Aparkalekuak: {{ capacity }}<br />Libre: {{ free }}<br />
+         <NetworkLink>
+            <name>GoogleMaps:</name>
+            <Link>
+               <href>https://www.google.es/maps?q={{lat}},{{lon}}</href>
+               <href>https://www.google.com/maps/place/{{lat}},{{lon}}</href>
+            </Link>
+         </NetworkLink>]]> 
+      </description>
+		<styleUrl>
+         {% if free-capacity >= 60 %}
+            #parkinggreen
+         {% elseif free-capacity >= 80 %}
+            #parkingyellow
+         {% elseif free-capacity >= 100  %}
+            #parkingred
+         {% else %}
+            #parkingblack
+         {% endif %}
+      </styleUrl>
+		<Point>
+		   <coordinates>{{lat}},{{lon}},0</coordinates>
+		</Point>
+	</Placemark>
+{% endmacro %}
