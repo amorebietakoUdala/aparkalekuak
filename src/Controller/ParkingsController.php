@@ -25,9 +25,6 @@ class ParkingsController extends AbstractController
             $this->getParameter('apiURL'),
         );
 
-        $statusCode = $response->getStatusCode();
-        $contentType = $response->getHeaders()['content-type'][0];
-        $content = $response->getContent();
         $parkings = $response->toArray();
 
         return $this->render("parkings/table.html.twig", [
@@ -44,9 +41,6 @@ class ParkingsController extends AbstractController
             $this->getParameter('apiURL'),
         );
 
-        $statusCode = $response->getStatusCode();
-        $contentType = $response->getHeaders()['content-type'][0];
-        $content = $response->getContent();
         $parkings = $response->toArray();
 
         return $this->render("parkings/map.html.twig", [
@@ -62,16 +56,10 @@ class ParkingsController extends AbstractController
             'GET',
             $this->getParameter('apiURL'),
         );
-
-        $statusCode = $response->getStatusCode();
-        $contentType = $response->getHeaders()['content-type'][0];
-        $content = $response->getContent();
         $parkings = $response->toArray();
-
         foreach ($parkings as $parking ) {
             $parkingsWithCoordinates[] = array_merge($this->getCoordinates($parking['nombre']), $parking); 
         }
-
         $response = new Response();
         $response->headers->set('Content-Type', 'application/vnd.google-earth.kml+xml');
 
