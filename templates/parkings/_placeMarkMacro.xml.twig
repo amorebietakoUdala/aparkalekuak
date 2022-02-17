@@ -1,7 +1,7 @@
 {% macro placemarkMacro(loop, name, capacity, free, lat, lon) %}
 	<Placemark id="placemark{{loop}}">
 		<name>{{ name }}</name>
-		<description><![CDATA[ Aparkalekuak: {{ capacity }}<br />Libre: {{ free }}<br />
+		<description><![CDATA[{{'label.capacity' | trans }}: {{ capacity }}<br />{{'label.free' | trans }}: {{ free }}<br />
          <NetworkLink>
             <name>GoogleMaps:</name>
             <Link>
