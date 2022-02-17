@@ -11,11 +11,11 @@
          </NetworkLink>]]> 
       </description>
 		<styleUrl>
-         {% if free-capacity >= 60 %}
+         {% if capacity-free >= 60 %}
             #parkinggreen
-         {% elseif free-capacity >= 80 %}
+         {% elseif capacity-free >= 80 %}
             #parkingyellow
-         {% elseif free-capacity >= 100  %}
+         {% elseif capacity-free >= 100  %}
             #parkingred
          {% else %}
             #parkingblack
