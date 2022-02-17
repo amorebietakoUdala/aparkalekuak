@@ -3,9 +3,7 @@
 {% block title %}{{ 'title.appTitle' | trans }}{% endblock %}
 
 {% block body %}
-    <table id="table" class="table table-stripped table-hover table-bordered table-sm" {{ stimulus_controller('sort-table', {
-      'locale' : app.request.locale|split('_')[0],
-   }) }}>
+    <table id="table" class="table table-stripped table-hover table-bordered table-sm">
         <thead>
             <tr>
                 <th>{{ 'label.name' | trans }}</th>

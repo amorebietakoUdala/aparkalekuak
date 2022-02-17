@@ -1,0 +1,9 @@
+#  Titles 
+title.appTitle: "Parkings"
+title.map: "Mapa"
+
+# Labels
+label.name: "Izena"
+label.capacity: "Lekuak"
+label.free: "Libreak"
+label.total: "Guztira"
