@@ -10,12 +10,13 @@
          </NetworkLink>]]> 
       </description>
 		<styleUrl>
-         {% if capacity-free/capacity >= 0.6 %}
-            #parkinggreen
-         {% elseif capacity-free/capacity >= 0.8 %}
-            #parkingyellow
-         {% elseif capacity-free/capacity = 1 %}
+         {{ free/capacity }}
+         {% if free/capacity <= 0.1 %}
             #parkingred
+         {% elseif free/capacity <= 0.2 %}
+            #parkingyellow
+         {% elseif free/capacity >= 0.5 %}
+            #parkinggreen
          {% else %}
             #parkingblack
          {% endif %}
